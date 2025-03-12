@@ -1,3 +1,35 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Application Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div>
+    <ion-toggle>Option 1</ion-toggle><br /><br />
+    <ion-toggle>Option 2</ion-toggle><br /><br />
+    <ion-toggle>Option 3</ion-toggle><br /><br />
+  </div>
+
+  <div>
+    <ion-range aria-label="Range Value:" [pin]="true" [pinFormatter]="pinFormatter" [min]="0" [max]="100" [step]="1"></ion-range>
+  </div>
+
+  <div>
+    <ion-checkbox class="square-button">Checkbox 1</ion-checkbox>
+    <ion-checkbox class="square-button">Checkbox 2</ion-checkbox>
+    <ion-checkbox class="square-button">Checkbox 3</ion-checkbox>
+  </div>
+
+  <div>
+    <ion-radio value="option1">Radio Option 1</ion-radio><br />
+    <ion-radio value="option2">Radio Option 2</ion-radio><br />
+  </div>
+
+  <ion-button>Reset all settings</ion-button>
+</ion-content>
