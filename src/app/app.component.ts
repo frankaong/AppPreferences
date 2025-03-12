@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 import { Preferences } from '@capacitor/preferences';
-import { IonRange, IonRadio, IonButton, IonCheckbox, IonToggle } from '@ionic/angular/standalone';
-
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
   standalone: true,
-  imports: [IonToggle, IonRange, IonCheckbox, IonRadio, IonButton],
+  imports: [IonicModule, FormsModule], 
 })
-
-export class AppComponent {
+export class AppComponent implements OnInit {
   toggles = { option1: false, option2: false, option3: false };
   rangeValue = 0;
   checkboxes = { checkbox1: false, checkbox2: false, checkbox3: false };
@@ -22,9 +21,9 @@ export class AppComponent {
   pinFormatter(value: number): string {
     return `${value}%`;
   }
-  
+
   async ngOnInit() {
-    await this.getPreferences(); 
+    await this.getPreferences();
   }
 
   async setPreferences() {
@@ -57,6 +56,6 @@ export class AppComponent {
     this.checkboxes = { checkbox1: false, checkbox2: false, checkbox3: false };
     this.selectedRadio = null;
 
-    await Preferences.clear;
+    await Preferences.clear();
   }
 }

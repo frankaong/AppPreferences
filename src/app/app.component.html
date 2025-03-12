@@ -1,35 +1,53 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
+  
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Application Settings</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-list class="ion-margin-bottom">
+      <ion-item>
+        <ion-toggle [(ngModel)]="toggles.option1" (ngModelChange)="setPreferences()">Option 1</ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-toggle [(ngModel)]="toggles.option2" (ngModelChange)="setPreferences()">Option 2</ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-toggle [(ngModel)]="toggles.option3" (ngModelChange)="setPreferences()">Option 3</ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <div class="ion-margin-bottom">
+      <label><strong>Range Value = {{ rangeValue }}</strong></label>
+      <ion-range [(ngModel)]="rangeValue" (ngModelChange)="setPreferences()" [pin]="true" [min]="0" [max]="100" [step]="1"></ion-range>
+    </div>
+
+    <ion-list class="ion-margin-bottom">
+      <ion-item>
+        <ion-checkbox [(ngModel)]="checkboxes.checkbox1" (ngModelChange)="setPreferences()">Checkbox 1</ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-checkbox [(ngModel)]="checkboxes.checkbox2" (ngModelChange)="setPreferences()">Checkbox 2</ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-checkbox [(ngModel)]="checkboxes.checkbox3" (ngModelChange)="setPreferences()">Checkbox 3</ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="ion-margin-bottom">
+      <ion-radio-group [(ngModel)]="selectedRadio" (ngModelChange)="setPreferences()">
+        <ion-item>
+          <ion-radio value="option1">Radio Option 1</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="option2">Radio Option 2</ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-button expand="block" (click)="resetAllSettings()">Reset all settings</ion-button>
+  </ion-content>
 </ion-app>
-
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Application Settings</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding">
-
-  <div>
-    <ion-toggle>Option 1</ion-toggle><br /><br />
-    <ion-toggle>Option 2</ion-toggle><br /><br />
-    <ion-toggle>Option 3</ion-toggle><br /><br />
-  </div>
-
-  <div>
-    <ion-range aria-label="Range Value:" [pin]="true" [pinFormatter]="pinFormatter" [min]="0" [max]="100" [step]="1"></ion-range>
-  </div>
-
-  <div>
-    <ion-checkbox class="square-button">Checkbox 1</ion-checkbox>
-    <ion-checkbox class="square-button">Checkbox 2</ion-checkbox>
-    <ion-checkbox class="square-button">Checkbox 3</ion-checkbox>
-  </div>
-
-  <div>
-    <ion-radio value="option1">Radio Option 1</ion-radio><br />
-    <ion-radio value="option2">Radio Option 2</ion-radio><br />
-  </div>
-
-  <ion-button>Reset all settings</ion-button>
-</ion-content>
